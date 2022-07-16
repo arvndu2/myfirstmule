@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="c8788dc3-b703-4e63-ad8d-473ea6c46d4b" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<flow name="cicd-jenkins-implFlow" doc:id="36a6ac06-d86f-4bdc-8aef-c470e140cd83" >
+		<http:listener doc:name="Listener" doc:id="daf709f1-aa80-4524-8f24-8d467c6ecf0b" config-ref="HTTP_Listener_config" path="/path"/>
+		<logger level="INFO" doc:name="Logger" doc:id="8c309f5d-96d2-4392-a141-45111bbd736b" message='" Sucessful Yar"'/>
+		<set-payload value='#["sucess"]' doc:name="Set Payload" doc:id="997165e6-54a3-418b-92f6-25223d2136eb" />
+	</flow>
+</mule>
